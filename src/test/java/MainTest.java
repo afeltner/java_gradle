@@ -41,11 +41,15 @@ public class MainTest {
     public void testMainHelpArgument() {
         String[] args = new String[]{"-h"};
         String expectedOutput = """
-                usage: Main [-f] [-h] [-o] [-r]
-                 -f,--fib        print this Fibonacci sequence starting at x.
+                usage: Main [-a] [-b] [-f] [-h] [-o] [-r] [-u]
+                 -a,--array      find missing element in an array example.
+                 -b,--binary     find max binary gap example.
+                 -f,--fib        print this Fibonacci sequence starting at x for y
+                                 iterations.
                  -h,--help       print this help message to the output stream.
                  -o,--optional   example using optional fields.
                  -r,--rotate     rotate an array.
+                 -u,--unpair     find unpaired element in list example.
                 """;
         try {
             Main.main(args);

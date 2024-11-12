@@ -6,7 +6,6 @@ public class InvalidArgumentException extends Exception {
      * InvalidArgumentException is the default constructor with no arguments.
      */
     public InvalidArgumentException() {
-
     }
 
     /**

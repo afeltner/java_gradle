@@ -26,6 +26,10 @@ public class UserStats {
         this.setVisitCount(visitCount);
     }
 
+    /**
+     * testUserStats will set up a Map of UserStats objects.  That map will then be passed ot a method that will
+     * add up the visitCount per user.
+     */
     public static void testUserStats() {
         Map<String, UserStats> userVisits = new HashMap<>();
         userVisits.put("1", new UserStats("1", Long.parseLong("3")));
@@ -38,6 +42,18 @@ public class UserStats {
         printResultSet(result);
     }
 
+    /**
+     * count will loop through a Map of <String, UserStatus> to create a return Map containing the userID along
+     * with the accumulative number of visits.
+     * Validation rules are:
+     * - If the UserStatus is null, the entry will be skipped.
+     * - If the optional visit count is not present, the entry will be skipped.
+     * - If the userID is not a number it will be skipped.
+     * - If visitCount is 0 it will be skipped.
+     *
+     * @param visits Input Map of <String, UserStatus> to be evaluated.
+     * @return Map<Long, Long> The map will be the userID along with the cumulative number of visit counts.
+     */
     @SafeVarargs
     private static Map<Long, Long> count(Map<String, UserStats>... visits) {
         Map<Long, Long> result = new HashMap<>();
@@ -71,6 +87,11 @@ public class UserStats {
         return result;
     }
 
+    /**
+     * printResultSet will  loop through a Map<Long, Long> and log a message with the values.
+     *
+     * @param result The map will be the userID along with the cumulative number of visit counts.
+     */
     private static void printResultSet(Map<Long, Long> result) {
         int count = 1;
         for (Map.Entry<Long, Long> entry : result.entrySet()) {
